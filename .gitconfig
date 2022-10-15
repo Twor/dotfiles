@@ -1,0 +1,9 @@
+[user]
+	email = i@twor.me
+	name = Twor
+[core]
+	editor = vim
+[http]
+        proxy = socks5://127.0.0.1:7891
+[https]
+        proxy = socks5://127.0.0.1:7891

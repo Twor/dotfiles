@@ -1,0 +1,22 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+
+#### ibus
+GTK_IM_MODULE=ibus
+QT_IM_MODULE=ibus
+XMODIFIERS=@im=ibus
+GLFX_IM_MODULE=ibus
+
+#### GO
+GOPATH=/angus/Go
+GOROOT=/usr/lib/go
+
+#### nvm
+NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
+
+#### user
+EDITOR=vim
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.local/bin

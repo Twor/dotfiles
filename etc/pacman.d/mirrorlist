@@ -1,0 +1,65 @@
+##
+## Arch Linux community repository mirrorlist
+## Generated on 2021-06-24
+##
+
+## Our main server (Amsterdam, the Netherlands) (ipv4, ipv6, http, https)
+#Server = http://ftp.hosteurope.de/mirror/ftp.archlinux.org/core/os/$arch
+
+## OpenTUNA (China CDN) (ipv4, https)
+#Server = https://opentuna.cn/archlinux/$repo/os/$arch
+
+## 北京外国语大学 (北京) (ipv4, ipv6, http, https)
+#Server = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
+
+## 腾讯云 (Global CDN) (ipv4, http, https)
+#Server = https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch
+
+## 网易 (China CDN) (ipv4, http, https)
+#Server = http://mirrors.163.com/archlinux/$repo/os/x86_64
+#Server = http://mirrors.163.com/archlinux/$repo/os/i686
+
+## 阿里云 (Global CDN) (ipv4, http, https)
+#Server = https://mirrors.aliyun.com/archlinux/$repo/os/$arch
+
+## 华为云 (Global CDN) (ipv4, http, https)
+#Server = https://repo.huaweicloud.com/archlinux/$repo/os/$arch
+
+## 清华大学 (北京) (ipv4, ipv6, http, https)
+#Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+
+## 中国科学技术大学 (安徽合肥) (ipv4, ipv6, http, https)
+Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+
+## 哈尔滨工业大学 (黑龙江哈尔滨) (ipv4, ipv6, http, https)
+#Server = https://mirrors.hit.edu.cn/archlinux/$repo/os/$arch
+
+## 浙江大学 (浙江杭州) (ipv4, http, https)
+#Server = http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
+
+## 重庆大学 (重庆) (ipv4, ipv6, https)
+#Server = https://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
+
+## SJTUG 软件源镜像服务 (上海) (ipv4, https)
+#Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch
+
+## 莞工 GNU/Linux 协会 开源软件镜像站 (广东东莞) (ipv4, https)
+#Server = https://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch
+
+## xTom (Hong Kong server) (Hong Kong) (ipv4, ipv6, http, https)
+#Server = https://mirror.xtom.com.hk/archlinux/$repo/os/$arch
+
+## xTom (US server) (Fremont, CA, United States) (ipv4, ipv6, http, https)
+#Server = https://mirror.xtom.com/archlinux/$repo/os/$arch
+
+## xTom (Netherlands server) (Amsterdam, the Netherlands) (ipv4, ipv6, http, https)
+#Server = https://mirror.xtom.nl/archlinux/$repo/os/$arch
+
+## xTom (Germany server) (Dueseeldorf, Germany) (ipv4, ipv6, http, https)
+#Server = https://mirror.xtom.de/archlinux/$repo/os/$arch
+
+## xTom (Estonia server) (Tallinn, Estonia) (ipv4, ipv6, http, https)
+#Server = https://mirror.xtom.ee/archlinux/$repo/os/$arch
+
+## Open Computing Facility, UC Berkeley (Berkeley, CA, United States) (ipv4, ipv6, http, https)
+#Server = https://mirrors.ocf.berkeley.edu/archlinux/$repo/os/$arch

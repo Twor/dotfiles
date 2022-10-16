@@ -2,7 +2,12 @@
 simple beautiful Dotfile (archlinux rofi polybar ...)
 
 ```bash
-paru -S  i3-gaps polybar rofi dunst kitty cava spotify polybar-spotify-module nerd-fonts-complete nerd-fonts-hack font-awesome
+paru -S  i3-gaps polybar rofi dunst kitty cava spotify polybar-spotify-module 
+```
+
+### font
+```bash
+paru -S nerd-fonts-complete nerd-fonts-hack font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-sarasa-gothic
 ```
 
 

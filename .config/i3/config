@@ -277,7 +277,7 @@ mode "$mode_gaps_outer" {
 }
 
 # Lock screen
-# bindsym $mod+o exec --no-startup-id ~/.config/i3/lock.sh
+bindsym $mod+o exec --no-startup-id ~/.config/i3/lock.sh
 
 exec_always --no-startup-id ~/.config/i3/feh.sh
 exec_always --no-startup-id ~/.screenlayout/arandr.sh

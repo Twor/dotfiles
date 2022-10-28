@@ -1,28 +1,13 @@
 simple beautiful Dotfile (archlinux i3)
 
-# i3-gaps
-[i3-gaps](https://github.com/Airblader/i3)
-
+# PKG
 ```bash
-paru -S i3lock-color feh imagemagick
+sudo pacman -S i3-gaps polybar rofi dunst i3lock-color feh imagemagick nerd-fonts-complete ttf-font-awesome spotify cava zsh oh-my-zsh-git pacman-contrib jq acpilight pulseaudio scrot paru
+
+yay -S polybar-spotify-module rofi-greenclip
+
 ```
 
-# polybar
-[polybar](https://github.com/polybar/polybar)
-## font
-```bash
-paru -S nerd-fonts-complete nerd-fonts-hack font-awesome
-```
-
-## spotify module
-```bash
-paru -S spotify polybar-spotify-module cava
-```
-
-## checkupdates module
-```bash
-paru -S checkupdates
-```
 # Gesture
 
 from https://twor.me/posts/archlinux_gesture/

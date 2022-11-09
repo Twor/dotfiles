@@ -1,33 +1,48 @@
+# 设置mod键为win
 set $mod Mod4
-
-default_border pixel 0
-new_float normal
-
-hide_edge_borders none
-
-floating_minimum_size 0 x 0
-floating_maximum_size -1 x -1
-
-bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
-
-font xft:URWGothic-Book 11
-
 floating_modifier $mod
 
-bindsym $mod+Return exec GLFW_IM_MODULE=ibus kitty
+# 字体
+font xft:URWGothic-Book 11
 
-# Window kill command
+# 新窗口默认边框样式 normal|none|pixel
+default_border none
+default_floating_border none
+
+# 浮动窗口大小
+floating_minimum_size 0 x 0
+floating_maximum_size 1500 x 1000
+
+# 所有窗口配置
+#for_window [class=^.*] floating enable
+# 以粗体打印所有窗口标题
+for_window [class="^.*"] title_format "<b>%title</b>"
+for_window [class="^.*"] border pixel 1
+new_window pixel 1
+
+
+# 靠近屏幕边缘隐藏边框
+hide_edge_borders smart
+
+# 改变边框样式(隐藏/显示边框、隐藏/显示标题)
+bindsym $mod+n border pixel 0
+bindsym $mod+Shift+n border pixel 1
+bindsym $mod+y border normal 1
+bindsym $mod+Shift+y border pixel 1
+
+# 窗口杀死命令
 bindsym $mod+Shift+q kill
 
-# start program launcher
+# 启动程序启动器
+bindsym $mod+Return exec GLFW_IM_MODULE=ibus kitty
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Ctrl+d exec --no-startup-id rofi -show ssh
+bindsym $mod+Shift+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
 
-# change focus
 
+# 改变焦点
 bindsym $mod+u focus parent
 bindsym $mod+g focus mode_toggle
 
@@ -41,7 +56,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+# 移动焦点窗口
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
@@ -52,48 +67,47 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# workspace back and forth (with/without active container)
+# 来回切换工作区
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+b workspace back_and_forth # 来回切换工作区
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth  # 来回切换工作区（焦点窗口也跟随移动）
 
-# split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+# 平分窗口方向
+bindsym $mod+h split h;exec notify-send '水平分布窗口'
+bindsym $mod+v split v;exec notify-send '垂直分布窗口'
 bindsym $mod+q split toggle
 
-# toggle fullscreen mode for the focused container
+# 焦点容器的全屏模式
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
+# 更改容器布局（堆叠式、选项卡式、切换拆分）
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# 切换平铺/浮动
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
+# 在平铺/浮动窗口之间更改焦点
 bindsym $mod+space focus mode_toggle
 
-# toggle sticky
+# 切换粘贴窗口
 bindsym $mod+Shift+s sticky toggle
 
-# focus the parent container
+# 聚焦父容器
 bindsym $mod+a focus parent
 
-# move the currently focused window to the scratchpad
+# 将当前聚焦的窗口移动到暂存器
 bindsym $mod+Shift+minus move scratchpad
 
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
+# 显示下一个暂存器窗口或隐藏聚焦的暂存器窗口，如果有多个暂存器窗口，则将在它们之间循环。
 bindsym $mod+minus scratchpad show
 
-# navigate workspaces next / previous
+# 下一个/上一个工作区
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
-# workspaces
+# 工作区
 set $ws1 1
 set $ws2 2
 set $ws3 3
@@ -103,7 +117,7 @@ set $ws6 6
 set $ws7 7
 set $ws8 8
 
-# switch to workspace
+# 切换到工作区
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -113,7 +127,7 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 
-# Move focused container to workspace
+# 将焦点容器移动到工作区
 bindsym $mod+Ctrl+1 move container to workspace $ws1
 bindsym $mod+Ctrl+2 move container to workspace $ws2
 bindsym $mod+Ctrl+3 move container to workspace $ws3
@@ -123,7 +137,7 @@ bindsym $mod+Ctrl+6 move container to workspace $ws6
 bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
 
-# Move to workspace with focused container
+# 移动到焦点容器倒新的工作区
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
@@ -133,16 +147,13 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-# switch to workspace with urgent window automatically
+# 自动切换到带有紧急窗口的工作区
 
-for_window [class="^.*"] border pixel 0 # 把所有的窗口边框设为 2 像素
-# new_window 1pixel # 去掉标题栏
-#for_window [class=^.*] floating enable
 for_window [class="Telegram"] floating enable
 for_window [class="obs"] floating enable
 for_window [class="scrcpy"] floating enable
 for_window [instance="org.gnome.Nautilus"] floating enable, resize set 1000 700
-#for_window [title="ranger"] floating enable
+for_window [title="ranger"] floating enable
 for_window [title="^alsamixer$"] floating enable
 for_window [class="GotoHTTP"] floating enable
 for_window [class="feh"] floating enable
@@ -154,19 +165,19 @@ for_window [class="icalingua"] floating enable
 for_window [class="Spotify"] floating enable,move scratchpad
 
 
-# Only enable outer gaps when there is exactly one container
+# 仅在只有一个容器时才启用外部间隙
 smart_gaps inverse_outer
 
-# reload the configuration file
+# 重新加载配置文件
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# 重启 i3（保留您的布局/会话，可用于升级 i3）
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
+# 退出 i3（退出 X 会话）
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# Set shut down, restart and locking features
+# 设置关机、重启和锁定功能
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
@@ -183,7 +194,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-# Resize window (you can also use the mouse for that)
+#调整窗口大小（可以使用鼠标）
 bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -196,42 +207,44 @@ mode "resize" {
         bindsym l resize shrink height 5 px or 5 ppt
         bindsym semicolon resize grow width 5 px or 5 ppt
 
-        # same bindings, but for the arrow keys
+        # 相同的绑定，但对于箭头键
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # exit resize mode: Enter or Escape
+        # 退出调整大小模式：Enter 或 Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
 # Autostart applications
-#exec --no-startup-id picom --experimental-backends -b
-exec --no-startup-id libinput-gestures-setup start
-#exec --no-startup-id nm-applet
-exec_always --no-startup-id numlockx on # 开启小键盘
+exec --no-startup-id libinput-gestures-setup start #触摸板手势
+exec --no-startup-id prime-offload #显卡管理
+# exec --no-startup-id nm-applet
+exec --no-startup-id greenclip daemon & #剪贴板
+exec --no-startup-id ibus-daemon -drx #ibus输入法
+exec_always --no-startup-id numlockx on # 小键盘
 exec_always --no-startup-id $HOME/.config/polybar/launch
 
-#bindsym $mod+Ctrl+f exec kitty -e 'ranger'
-#bindsym $mod+t exec --no-startup-id pkill picom
-#bindsym $mod+Shift+a exec --no-startup-id picom --experimental-backends -b
-bindsym $mod+Ctrl+m exec kitty -e 'alsamixer'
-bindsym $mod+Shift+m exec spotify
-bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Sync/'
-bindsym $mod+Print --release exec --no-startup-id scrot -bs  -e 'mv $f ~/Sync/'
-bindsym $mod+Shift+Print --release exec --no-startup-id scrot -s  -e 'mv $f ~/Sync/'
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+Ctrl+f exec kitty -e 'ranger'
+bindsym $mod+t exec --no-startup-id pkill picom; notify-send 'down picom'" #关闭窗口（修改、透明）
+bindsym $mod+Shift+a exec --no-startup-id picom --experimental-backends -b; notify-send 'start picom'" #开启窗口（修改、透明）
+bindsym $mod+Ctrl+m exec kitty -e 'alsamixer' #音量管理
+bindsym $mod+Shift+m exec spotify #音乐
+bindsym Print exec --no-startup-id flameshot screen -p ~/Sync/ #截图
+bindsym $mod+Print --release exec --no-startup-id scrot -bs  -e 'mv $f ~/Sync/' #截图
+bindsym $mod+Shift+Print --release exec --no-startup-id flameshot gui -p ~/Sync/ #截图
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill #选择杀掉某个窗口
 
-# Theme colors
-client.focused          #272827 #272827 #657b83 #272827 #272827
-client.focused_inactive #272827 #272827 #657b83 #272827 #272827
-client.unfocused        #272827 #272827 #657b83 #272827 #272827
-client.urgent           #272827 #272827 #657b83 #272827 #272827
-client.placeholder      #272827 #272827 #657b83 #272827 #272827
+# class                 border  backgr. text    indicator child_border
+client.focused          #81A1C1 #2e3440 #ffffff #2e3440    #81A1C1
+client.focused_inactive #2e3440 #2e3440 #ffffff #2e3440    #2e3440
+client.unfocused        #2e3440 #2e3440 #888888 #2e3440    #2e3440
+client.urgent           #2f343a #900000 #ffffff #900000    #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000    #0c0c0c
 
-client.background       #272827
+client.background       #ffffff
 
 # Gaps
 gaps inner 4
@@ -282,9 +295,9 @@ bindsym $mod+o exec --no-startup-id ~/.config/i3/lock.sh
 exec_always --no-startup-id ~/.config/i3/feh.sh
 exec_always --no-startup-id ~/.screenlayout/arandr.sh
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute; notify-send 'Volume 2dB+'"
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute; notify-send 'Volume 2dB-'"
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness +10'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness -10'"

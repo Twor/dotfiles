@@ -1,5 +1,13 @@
 simple beautiful Dotfile (archlinux i3)
 
+          /\         ​ ██ Terminal: kitty 0.26.5 created by Kovid Goyal
+         /  \        ​ ██ Bar: polybar 3.6.3
+        /\   \       ​ ██ Notice: Dunst 1.9.0
+       /      \      ​ ██ Distro: Arch Linux
+      /   ,,   \     ​ ██ Kernel: 6.0.7-arch1-1
+     /   |  |  -\    ​ ██ WM: i3
+    /_-''    ''-_\   ​ ██ Shell: zsh 5.9
+
 # PKG
 ```bash
 sudo pacman -S i3-gaps polybar rofi dunst i3lock-color feh imagemagick nerd-fonts-complete ttf-font-awesome spotify cava zsh oh-my-zsh-git pacman-contrib jq acpilight pulseaudio scrot paru

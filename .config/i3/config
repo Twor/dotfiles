@@ -147,8 +147,8 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-# 自动切换到带有紧急窗口的工作区
 
+# 定制窗口
 for_window [class="Telegram"] floating enable
 for_window [class="obs"] floating enable
 for_window [class="scrcpy"] floating enable
@@ -295,8 +295,8 @@ bindsym $mod+o exec --no-startup-id ~/.config/i3/lock.sh
 exec_always --no-startup-id ~/.config/i3/feh.sh
 exec_always --no-startup-id ~/.screenlayout/arandr.sh
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute; notify-send 'Volume 2dB+'"
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute; notify-send 'Volume 2dB-'"
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness +10'"

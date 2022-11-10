@@ -11,17 +11,16 @@ alias p-qdt='sudo pacman -Qdt'		# list orphans
 alias p-del='p-qdt && sudo pacman -Rns $(sudo pacman -Qtdq)' # remove orphans
 alias p-cc='sudo pacman -Scc'		# clean cache
 alias p-ql='sudo pacman -Ql'		# list files
-alias ll='ls -lA'
+alias p-ql='sudo pacman -Ql'		# list files
+alias ls='ls --color=auto'
+alias ll='ls -lA --color=auto'
 alias mi='sudo -b scrcpy -s 4dcb9ad5 --turn-screen-off'
 alias fy='trans -sp'
 #alias goto='sudo /opt/gotohttp_gui_x64/gotohttp noboot'
 #alias cat='bat --color=always'
 #alias diff='delta'
-# proxy
 alias myip="curl ifconfig.me/ip && curl ifconfig.me/lang"
+# proxy
 alias setproxy="export ALL_PROXY=socks5://127.0.0.1:7891"
 alias unsetproxy="unset ALL_PROXY"
-# NVIDIA driver
-#alias nv_on="sudo tee /proc/acpi/bbswitch <<< ON"
-#alias nv_off="sudo tee /proc/acpi/bbswitch <<< OFF"
-#alias nv_setting="optirun -b none nvidia-settings -c :8"
+

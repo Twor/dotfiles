@@ -10,7 +10,7 @@ simple beautiful Dotfile (archlinux i3)
 
 # PKG
 ```bash
-sudo pacman -S i3-gaps polybar rofi dunst i3lock-color feh imagemagick nerd-fonts-complete ttf-font-awesome spotify cava zsh oh-my-zsh-git pacman-contrib jq acpilight pulseaudio scrot paru
+sudo pacman -S i3-gaps polybar rofi dunst i3lock-color feh imagemagick nerd-fonts-complete ttf-font-awesome spotify cava zsh zsh-theme-powerlevel10k pacman-contrib jq acpilight pulseaudio scrot paru
 
 yay -S polybar-spotify-module rofi-greenclip
 

@@ -17,7 +17,7 @@ floating_maximum_size 1500 x 1000
 #for_window [class=^.*] floating enable
 # 以粗体打印所有窗口标题
 for_window [class="^.*"] title_format "<b>%title</b>"
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 new_window pixel 1
 
 
@@ -220,25 +220,36 @@ mode "resize" {
 }
 
 # Autostart applications
-exec --no-startup-id libinput-gestures-setup start #触摸板手势
-exec --no-startup-id prime-offload #显卡管理
-# exec --no-startup-id nm-applet
-exec --no-startup-id greenclip daemon & #剪贴板
-exec --no-startup-id ibus-daemon -drx #ibus输入法
+exec_always --no-startup-id ~/.config/i3/scripts/feh.sh # 桌面背景图
+exec_always --no-startup-id ~/.screenlayout/arandr.sh # 多显示器
 exec_always --no-startup-id numlockx on # 小键盘
+exec_always --no-startup-id picom -b #开启窗口（修改、透明）
 exec_always --no-startup-id $HOME/.config/polybar/launch
 
+exec --no-startup-id libinput-gestures-setup start #触摸板手势
+exec --no-startup-id prime-offload #显卡管理
+exec --no-startup-id greenclip daemon & #剪贴板
+exec --no-startup-id ibus-daemon -drx #ibus输入法
+
+
+# 文件管理
 bindsym $mod+Ctrl+f exec kitty -e 'ranger'
 #关闭窗口（修改、透明）
 bindsym $mod+t exec --no-startup-id "pkill picom; notify-send 'down picom'"
 #开启窗口（修改、透明）
-bindsym $mod+Shift+t exec --no-startup-id "picom --experimental-backends -b; notify-send 'start picom'"
-bindsym $mod+Ctrl+m exec kitty -e 'alsamixer' #音量管理
-bindsym $mod+Shift+m exec spotify #音乐
-bindsym Print exec --no-startup-id flameshot screen -p ~/Sync/ #截图
-bindsym $mod+Print --release exec --no-startup-id scrot -bs  -e 'mv $f ~/Sync/' #截图
-bindsym $mod+Shift+Print --release exec --no-startup-id flameshot gui -p ~/Sync/ #截图
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill #选择杀掉某个窗口
+bindsym $mod+Shift+t exec --no-startup-id "picom -b; notify-send 'start picom'"
+#音量管理
+bindsym $mod+Ctrl+m exec kitty -e 'alsamixer'
+#spotify
+bindsym $mod+Shift+m exec spotify
+#截图
+bindsym Print exec --no-startup-id flameshot screen -p ~/Sync/
+bindsym $mod+Print --release exec --no-startup-id scrot -bs  -e 'mv $f ~/Sync/'
+bindsym $mod+Shift+Print --release exec --no-startup-id flameshot gui -p ~/Sync/
+# 屏幕锁定
+bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/lock.sh
+#选择杀掉某个窗口
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #81A1C1 #2e3440 #ffffff #2e3440    #81A1C1
@@ -250,7 +261,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000    #0c0c0c
 client.background       #ffffff
 
 # Gaps
-gaps inner 4
+gaps inner 12
 gaps outer -4
 
 smart_gaps on
@@ -292,15 +303,10 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-# Lock screen
-bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/lock.sh
-
-exec_always --no-startup-id ~/.config/i3/scripts/feh.sh
-exec_always --no-startup-id ~/.screenlayout/arandr.sh
-
+# 音量管理
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -c 0 -q set Master 2dB+ unmute; notify-send 'Volume +5'"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -c 0 -q set Master 2db- unmute; notify-send 'Volume -5'"
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
-# Screen brightness controls
+# 亮度管理
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness +10'"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness -10'"

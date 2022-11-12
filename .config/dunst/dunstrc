@@ -1,9 +1,9 @@
-#        __                 __ 
+#        __                 __
 #   ____/ /_  ______  _____/ /_
 #  / __  / / / / __ \/ ___/ __/
-# / /_/ / /_/ / / / (__  ) /_  
-# \__,_/\__,_/_/ /_/____/\__/  
-#                              
+# / /_/ / /_/ / / / (__  ) /_
+# \__,_/\__,_/_/ /_/____/\__/
+#
 
 [global]
 font = Roboto Medium 12
@@ -187,20 +187,20 @@ frame_width = 0
 # Otherwise the "#" and following would be interpreted as a comment.
 frame_color = "#80a8fd"
 foreground = "#80a8fd"
-background = "#282e49"
-timeout = 10
+background = "#2E3440"
+timeout = 3
 
 [urgency_normal]
 frame_color = "#80a8fd"
 foreground = "#80a8fd"
-background = "#282e49"
-timeout = 10
+background = "#2E3440"
+timeout = 3
 
 [urgency_critical]
 frame_color = "#f7768e"
 foreground = "#ffffff"
 background = "#c45e71"
-timeout = 10
+timeout = 5
 
 [notify_send]
 appname = notify-send

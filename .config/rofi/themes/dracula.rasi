@@ -15,11 +15,19 @@ configuration {
   }
 
   run {
-    display-name: "";
+    display-name: "";
   }
 
   window {
     display-name: "";
+  }
+
+  ssh {
+    display-name: "";
+  }
+
+  clipboard {
+    display-name: "";
   }
 
   timeout {

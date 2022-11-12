@@ -40,6 +40,7 @@ bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Ctrl+d exec --no-startup-id rofi -show ssh
 bindsym $mod+Shift+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
+bindsym $mod+Shift+w exec --no-startup-id $HOME/.config/rofi/scripts/rofi-wifi-menu.sh
 
 
 # 改变焦点
@@ -228,8 +229,10 @@ exec_always --no-startup-id numlockx on # 小键盘
 exec_always --no-startup-id $HOME/.config/polybar/launch
 
 bindsym $mod+Ctrl+f exec kitty -e 'ranger'
-bindsym $mod+t exec --no-startup-id pkill picom; notify-send 'down picom'" #关闭窗口（修改、透明）
-bindsym $mod+Shift+a exec --no-startup-id picom --experimental-backends -b; notify-send 'start picom'" #开启窗口（修改、透明）
+#关闭窗口（修改、透明）
+bindsym $mod+t exec --no-startup-id "pkill picom; notify-send 'down picom'"
+#开启窗口（修改、透明）
+bindsym $mod+Shift+t exec --no-startup-id "picom --experimental-backends -b; notify-send 'start picom'"
 bindsym $mod+Ctrl+m exec kitty -e 'alsamixer' #音量管理
 bindsym $mod+Shift+m exec spotify #音乐
 bindsym Print exec --no-startup-id flameshot screen -p ~/Sync/ #截图
@@ -290,13 +293,13 @@ mode "$mode_gaps_outer" {
 }
 
 # Lock screen
-bindsym $mod+o exec --no-startup-id ~/.config/i3/lock.sh
+bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/lock.sh
 
-exec_always --no-startup-id ~/.config/i3/feh.sh
+exec_always --no-startup-id ~/.config/i3/scripts/feh.sh
 exec_always --no-startup-id ~/.screenlayout/arandr.sh
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -c 0 -q set Master 2dB+ unmute; notify-send 'Volume +5'"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -c 0 -q set Master 2db- unmute; notify-send 'Volume -5'"
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness +10'"

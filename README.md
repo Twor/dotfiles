@@ -10,10 +10,15 @@ simple beautiful Dotfile (archlinux i3)
 
 # PKG
 ```bash
-sudo pacman -S i3-gaps polybar rofi dunst picom-git i3lock-color feh imagemagick nerd-fonts-complete ttf-font-awesome spotify cava zsh zsh-theme-powerlevel10k pacman-contrib jq acpilight pulseaudio scrot paru
+sudo pacman -S i3-gaps polybar rofi dunst picom-git i3lock-color feh imagemagick nerd-fonts-complete ttf-font-awesome spotify cava pacman-contrib jq acpilight pulseaudio scrot paru
 
 yay -S polybar-spotify-module rofi-greenclip
 
+```
+
+# shell
+```bash
+sudo pacman -S fish fisher && fisher install ilancosman/tide@v5
 ```
 
 # Gesture

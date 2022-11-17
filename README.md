@@ -6,7 +6,7 @@ simple beautiful Dotfile (archlinux i3)
        /      \      ​ ██ Distro: Arch Linux
       /   ,,   \     ​ ██ Kernel: 6.0.7-arch1-1
      /   |  |  -\    ​ ██ WM: i3
-    /_-''    ''-_\   ​ ██ Shell: zsh 5.9
+    /_-''    ''-_\   ​ ██ Shell: fish 3.5.1
 
 # PKG
 ```bash
@@ -16,7 +16,7 @@ yay -S polybar-spotify-module rofi-greenclip
 
 ```
 
-# shell
+# fish shell
 ```bash
 sudo pacman -S fish fisher && fisher install ilancosman/tide@v5
 ```

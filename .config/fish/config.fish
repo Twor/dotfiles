@@ -29,6 +29,14 @@ function nvm
    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
 
+function pacmansh
+   $HOME/.config/fish/scripts/pacmansh.sh
+end
+
+function colors
+   $HOME/.config/fish/scripts/colors.sh
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end

@@ -11,14 +11,14 @@ default_floating_border none
 
 # 浮动窗口大小
 floating_minimum_size 0 x 0
-floating_maximum_size 1500 x 1000
+floating_maximum_size 1500 x 900
 
 # 所有窗口配置
 #for_window [class=^.*] floating enable
 # 以粗体打印所有窗口标题
 for_window [class="^.*"] title_format "<b>%title</b>"
-for_window [class="^.*"] border pixel 0
-new_window pixel 1
+for_window [class="^.*"] border pixel 3
+new_window pixel 3
 
 
 # 靠近屏幕边缘隐藏边框
@@ -26,9 +26,9 @@ hide_edge_borders smart
 
 # 改变边框样式(隐藏/显示边框、隐藏/显示标题)
 bindsym $mod+n border pixel 0
-bindsym $mod+Shift+n border pixel 1
-bindsym $mod+y border normal 1
-bindsym $mod+Shift+y border pixel 1
+bindsym $mod+Shift+n border pixel 3
+#bindsym $mod+y border normal 3
+#bindsym $mod+Shift+y border pixel 3
 
 # 窗口杀死命令
 bindsym $mod+Shift+q kill
@@ -163,7 +163,7 @@ for_window [instance=indicator-stickynotes] sticky enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="微信"] floating enable
 for_window [class="icalingua"] floating enable
-for_window [class="Spotify"] floating enable,move scratchpad
+for_window [class="Spotify"] floating enable,resize set 1500 900,move scratchpad
 
 
 # 仅在只有一个容器时才启用外部间隙
@@ -195,7 +195,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-#调整窗口大小（可以使用鼠标）
+#调整窗口大小（设置边框，可以使用鼠标）
 bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -223,13 +223,13 @@ mode "resize" {
 exec_always --no-startup-id ~/.config/i3/scripts/feh.sh # 桌面背景图
 exec_always --no-startup-id ~/.screenlayout/arandr.sh # 多显示器
 exec_always --no-startup-id numlockx on # 小键盘
-exec_always --no-startup-id picom -b #开启窗口（修改、透明）
+# exec_always --no-startup-id picom -b #开启窗口（修改、透明）
 exec_always --no-startup-id $HOME/.config/polybar/launch
 
 exec --no-startup-id libinput-gestures-setup start #触摸板手势
 exec --no-startup-id prime-offload #显卡管理
 exec --no-startup-id greenclip daemon & #剪贴板
-exec --no-startup-id ibus-daemon -drx #ibus输入法
+exec_always --no-startup-id ibus-daemon -d -x #ibus输入法
 
 
 # 文件管理

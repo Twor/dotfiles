@@ -3,7 +3,6 @@
 #
 # Syntax: simple "KEY=VAL" pairs on separate lines
 #
-
 #### ibus
 GTK_IM_MODULE=ibus
 QT_IM_MODULE=ibus
@@ -19,4 +18,4 @@ NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
 
 #### user
 EDITOR=vim
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.local/bin
+export PATH=$PATH:/bin:/usr/bin:$HOME/.local/bin:$HOME/.config/composer/vendor/bin:$GOROOT/bin:$GOPATH/bin
